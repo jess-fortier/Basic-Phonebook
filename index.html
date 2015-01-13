@@ -20,36 +20,33 @@
 			<section ng-app="phonebookApp">
 				<h2>Save your number:</h2>
 				<form name="addToPhonebook" ng-submit="submitForm(addToPhonebook.$valid)" novalidate>
-					<fieldset>
-						<label>Name:</label>
-						<input 
-							name="entryName"
-							type="text" 
-							ng-model="entryName" 
-							required="A name is required" 
-							ng-required="true" 
-							ng-minlength="1"
-							ngTrim="true"
-							ng-class="{ 'has-error' : addToPhonebook.entryName.$invalid && !addToPhonebook.entryName.$pristine }"
-						/>
-						<p class="error" ng-show="addToPhonebook.entryName.$invalid && !addToPhonebook.entryName.$pristine">(any non-whitespace will do)</p>
-						<br />
-						<label>Phone Number:</label>
-						<input 
-							name="phoneNumber"
-							type="tel" 
-							ng-model="phoneNumber" 
-							required="A valid phone number is required" 
-							ng-required="true"
-							ng-pattern="/^[\s,\.,-]*[1-9](([\s,\.,-]*\d){9,10})[\s,\.,-]*$/"
-							ngTrim="true"
-							ng-class="{ 'has-error' : addToPhonebook.phoneNumber.$error.pattern }"
-						/>
-						<p class="error" ng-show="addToPhonebook.phoneNumber.$error.pattern">(10 or 11 digits, and any number of spaces, dashes, or dots)</p>
-					</fieldset>
+					<label>Name:</label>
+					<input 
+						name="entryName"
+						type="text" 
+						ng-model="entryName" 
+						required="A name is required" 
+						ng-required="true" 
+						ng-minlength="1"
+						ngTrim="true"
+						ng-class="{ 'has-error' : addToPhonebook.entryName.$invalid && !addToPhonebook.entryName.$pristine }"
+					/>
+					<p class="error" ng-show="addToPhonebook.entryName.$invalid && !addToPhonebook.entryName.$pristine">(any non-whitespace will do)</p>
+					<br />
+					<label>Phone Number:</label>
+					<input 
+						name="phoneNumber"
+						type="tel" 
+						ng-model="phoneNumber" 
+						required="A valid phone number is required" 
+						ng-required="true"
+						ng-pattern="/^[\s,\.,-]*[1-9](([\s,\.,-]*\d){9,10})[\s,\.,-]*$/"
+						ngTrim="true"
+						ng-class="{ 'has-error' : addToPhonebook.phoneNumber.$error.pattern }"
+					/>
+					<p class="error" ng-show="addToPhonebook.phoneNumber.$error.pattern">(10 or 11 digits, and any number of spaces, dashes, or dots)</p>
 					<p>
-						<button type="submit">Delete</button>
-						<button type="submit" ng-disabled="userForm.$invalid">Save</button>
+						<button type="submit" ng-disabled="addToPhonebook.$invalid">Save</button>
 					</p>
 				</form>
 
