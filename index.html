@@ -6,7 +6,7 @@
 		<title>Welcome to Globophone!</title>
 		<meta name="description" content="Save your number">
 		<script src="js/angular.min.js"></script>
-		<script src="js/angularLocalStorage.js"></script>
+		<script src="js/angular-local-storage.js"></script>
 		<script src="js/main.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="css/style.css">
@@ -26,7 +26,6 @@
 						type="text" 
 						ng-model="entryName" 
 						required="A name is required" 
-						ng-required="true" 
 						ng-minlength="1"
 						ngTrim="true"
 						ng-class="{ 'has-error' : addToPhonebook.entryName.$invalid && !addToPhonebook.entryName.$pristine }"
@@ -39,14 +38,13 @@
 						type="tel" 
 						ng-model="phoneNumber" 
 						required="A valid phone number is required" 
-						ng-required="true"
 						ng-pattern="/^[\s,\.,-]*[1-9](([\s,\.,-]*\d){9,10})[\s,\.,-]*$/"
 						ngTrim="true"
 						ng-class="{ 'has-error' : addToPhonebook.phoneNumber.$error.pattern }"
 					/>
 					<p class="error" ng-show="addToPhonebook.phoneNumber.$error.pattern">(10 or 11 digits, and any number of spaces, dashes, or dots)</p>
 					<p>
-						<button type="submit" ng-disabled="addToPhonebook.$invalid">Save</button>
+						<button ng-click="alert('doing a thing')" ng-disabled="addToPhonebook.$invalid" >Save</button>
 					</p>
 				</form>
 
