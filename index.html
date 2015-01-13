@@ -1,0 +1,35 @@
+<!doctype html>
+<html leng="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>Welcome to Globophone!</title>
+		<meta name="description" content="Save your number">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+		<script src="js/main.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/style.css">
+		<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<section id="content">
+			<h1>Welcome to Globophone!</h1>
+			<section ng-app="phonebookApp">
+				<h2>Save your number:</h2>
+				<form novalidate>
+					<fieldset>
+						<label>Name:</label><input type="text" ng-model="theName" />
+						<br />
+						<label>Phone Number:</label><input type="tel" ng-model="phoneNumber" />
+					</fieldset>
+					<input type="button" value="Delete" />
+					<input type="button" value="Save" />
+				</form>
+
+				Debug: {{ theName }}, {{ phoneNumber }}
+			</section>
+		</section>
+	</body>
+</html>

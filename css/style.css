@@ -1,0 +1,42 @@
+body
+{
+	background: #fcfcff;
+	font-family: 'Roboto', sans-serif;
+	padding: 2em;
+}
+#content
+{
+	width: 500px;
+	background: #ffffff;
+	margin: 0 auto;
+	padding: 2em;
+	border: 1px solid #dddddd;
+}
+#content h1
+{
+	font-size: 2em;
+	text-decoration: underline;
+}
+#content h2
+{
+	font-size: 1.5em;
+}
+fieldset
+{
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+fieldset {width: 100%;}
+fieldset label
+{
+	width: 40%;
+	margin: .5em 1em .5em 0;
+	text-align: right;
+	display: inline-block;
+}
+fieldset input
+{
+	display: inline-block;
+}
+footer {position: bottom: 0;}
