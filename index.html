@@ -5,7 +5,8 @@
 
 		<title>Welcome to Globophone!</title>
 		<meta name="description" content="Save your number">
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+		<script src="js/angular.min.js"></script>
+		<script src="js/angularLocalStorage.js"></script>
 		<script src="js/main.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="css/style.css">
@@ -18,17 +19,41 @@
 			<h1>Welcome to Globophone!</h1>
 			<section ng-app="phonebookApp">
 				<h2>Save your number:</h2>
-				<form novalidate>
+				<form name="addToPhonebook" ng-submit="submitForm(addToPhonebook.$valid)" novalidate>
 					<fieldset>
-						<label>Name:</label><input type="text" ng-model="theName" />
+						<label>Name:</label>
+						<input 
+							name="entryName"
+							type="text" 
+							ng-model="entryName" 
+							required="A name is required" 
+							ng-required="true" 
+							ng-minlength="1"
+							ngTrim="true"
+							ng-class="{ 'has-error' : addToPhonebook.entryName.$invalid && !addToPhonebook.entryName.$pristine }"
+						/>
+						<p class="error" ng-show="addToPhonebook.entryName.$invalid && !addToPhonebook.entryName.$pristine">(any non-whitespace will do)</p>
 						<br />
-						<label>Phone Number:</label><input type="tel" ng-model="phoneNumber" />
+						<label>Phone Number:</label>
+						<input 
+							name="phoneNumber"
+							type="tel" 
+							ng-model="phoneNumber" 
+							required="A valid phone number is required" 
+							ng-required="true"
+							ng-pattern="/^[\s,\.,-]*[1-9](([\s,\.,-]*\d){9,10})[\s,\.,-]*$/"
+							ngTrim="true"
+							ng-class="{ 'has-error' : addToPhonebook.phoneNumber.$error.pattern }"
+						/>
+						<p class="error" ng-show="addToPhonebook.phoneNumber.$error.pattern">(10 or 11 digits, and any number of spaces, dashes, or dots)</p>
 					</fieldset>
-					<input type="button" value="Delete" />
-					<input type="button" value="Save" />
+					<p>
+						<button type="submit">Delete</button>
+						<button type="submit" ng-disabled="userForm.$invalid">Save</button>
+					</p>
 				</form>
 
-				Debug: {{ theName }}, {{ phoneNumber }}
+				Debug: {{ entryName }}, {{ phoneNumber }}
 			</section>
 		</section>
 	</body>

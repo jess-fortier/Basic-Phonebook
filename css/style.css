@@ -39,4 +39,17 @@ fieldset input
 {
 	display: inline-block;
 }
-footer {position: bottom: 0;}
+p.error
+{
+	color: #aaaaaa;
+	font-size: 0.8em;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+.has-error{
+	background-color: #ffdddd;
+	color: red;
+	font-weight: bold;
+}
