@@ -44,7 +44,7 @@
 					/>
 					<p class="error" ng-show="addToPhonebook.phoneNumber.$error.pattern">(10 or 11 digits, and any number of spaces, dashes, or dots)</p>
 					<p>
-						<button ng-click="alert('doing a thing')" ng-disabled="addToPhonebook.$invalid" >Save</button>
+						<input type="submit" value="Save" ng-disabled="addToPhonebook.$invalid" />
 					</p>
 				</form>
 
