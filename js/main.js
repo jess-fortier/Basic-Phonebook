@@ -1,16 +1,15 @@
-var app = angular.module('phonebookApp', []);
-
-app.controller('mainController', function($scope) {
-	$scope.submitForm = function(isValid) {
-		console.log("bloop");
-		alert('submitForm function has been called...');
-		if (isValid) {
-			alert('our form is amazing');
+var app = angular
+	.module('basicPhonebook', ['LocalStorageModule'])
+	.config(function (localStorageServiceProvider) {
+	  localStorageServiceProvider.setPrefix('myApp');
+	})
+	.controller('mainController', 
+		function($scope, localStorageService) {
+			$scope.addEntry = function(isValid, name, phone) {
+				if (isValid && localStorageService.isSupported) {
+					alert("beep beep");
+					localStorageService.set("name", name);
+					localStorageService.set("phone", phone);
+				}
 		}
-	};
-});
-
-function saveEntry(name, phone){
-	localStorageService.clearAll();
-	localStorageService.set(name, phone);
-}
+	});

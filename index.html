@@ -5,8 +5,9 @@
 
 		<title>Welcome to Globophone!</title>
 		<meta name="description" content="Save your number">
-		<script src="js/angular.min.js"></script>
+		<script src="js/angular.js"></script>
 		<script src="js/angular-local-storage.js"></script>
+		<script src="js/common.js"></script>
 		<script src="js/main.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="css/style.css">
@@ -17,9 +18,9 @@
 	<body>
 		<section id="content">
 			<h1>Welcome to Globophone!</h1>
-			<section ng-app="phonebookApp">
+			<section ng-app="basicPhonebook" ng-controller="mainController">
 				<h2>Save your number:</h2>
-				<form name="addToPhonebook" ng-submit="submitForm(addToPhonebook.$valid)" novalidate>
+				<form name="addToPhonebook" novalidate>
 					<label>Name:</label>
 					<input 
 						name="entryName"
@@ -31,7 +32,6 @@
 						ng-class="{ 'has-error' : addToPhonebook.entryName.$invalid && !addToPhonebook.entryName.$pristine }"
 					/>
 					<p class="error" ng-show="addToPhonebook.entryName.$invalid && !addToPhonebook.entryName.$pristine">(any non-whitespace will do)</p>
-					<br />
 					<label>Phone Number:</label>
 					<input 
 						name="phoneNumber"
@@ -44,11 +44,10 @@
 					/>
 					<p class="error" ng-show="addToPhonebook.phoneNumber.$error.pattern">(10 or 11 digits, and any number of spaces, dashes, or dots)</p>
 					<p>
-						<input type="submit" value="Save" ng-disabled="addToPhonebook.$invalid" />
+						<button ng-click="addEntry(addToPhonebook.$valid, entryName, phoneNumber)" ng-disabled="addToPhonebook.$invalid">Save</button>
 					</p>
 				</form>
-
-				Debug: {{ entryName }}, {{ phoneNumber }}
+				Debug: {{ entryName }}: {{ phoneNumber }}
 			</section>
 		</section>
 	</body>
