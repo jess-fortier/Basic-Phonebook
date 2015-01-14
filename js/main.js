@@ -28,6 +28,7 @@ var app = angular
 				$scope.entryName = '';
 				localStorageService.remove("phone");
 				$scope.phoneNumber = '';
+				$scope.addToPhonebook.$setPristine(true);
 			};
 
 			//Confirm whether entries for name or phone already exist in localStorage
