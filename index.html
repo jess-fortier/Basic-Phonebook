@@ -15,10 +15,10 @@
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 	</head>
-	<body ng-app="basicPhonebook">
+	<body>
 		<section id="content">
 			<h1>Welcome to Globophone!</h1>
-			<section ng-controller="mainController">
+			<section ng-app="basicPhonebook" ng-controller="mainController">
 				<section ng-show="showFields">
 					<h2>Save your number:</h2>
 					<form name="addToPhonebook" novalidate>
