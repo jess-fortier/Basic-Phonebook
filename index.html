@@ -21,31 +21,35 @@
 			<section ng-app="basicPhonebook" ng-controller="mainController">
 				<h2>Save your number:</h2>
 				<form name="addToPhonebook" novalidate>
-					<label>Name:</label>
-					<input 
-						name="entryName"
-						type="text" 
-						ng-model="entryName" 
-						required="A name is required" 
-						ng-minlength="1"
-						ngTrim="true"
-						ng-class="{ 'has-error' : addToPhonebook.entryName.$invalid && !addToPhonebook.entryName.$pristine }"
-					/>
+					<p>
+						<label>Name:</label>
+						<input 
+							name="entryName"
+							type="text" 
+							ng-model="entryName" 
+							required="A name is required" 
+							ng-minlength="1"
+							ngTrim="true"
+							ng-class="{ 'has-error' : addToPhonebook.entryName.$invalid && !addToPhonebook.entryName.$pristine }"
+						/>
+					</p>
 					<p class="error" ng-show="addToPhonebook.entryName.$invalid && !addToPhonebook.entryName.$pristine">(any non-whitespace will do)</p>
-					<label>Phone Number:</label>
-					<input 
-						name="phoneNumber"
-						type="tel" 
-						ng-model="phoneNumber" 
-						required="A valid phone number is required" 
-						ng-pattern="/^[\s,\.,-]*[1-9](([\s,\.,-]*\d){9,10})[\s,\.,-]*$/"
-						ngTrim="true"
-						ng-class="{ 'has-error' : addToPhonebook.phoneNumber.$error.pattern }"
-					/>
+					<p>
+						<label>Phone Number:</label>
+						<input 
+							name="phoneNumber"
+							type="tel" 
+							ng-model="phoneNumber" 
+							required="A valid phone number is required" 
+							ng-pattern="/^[\s,\.,-]*[1-9](([\s,\.,-]*\d){9,10})[\s,\.,-]*$/"
+							ngTrim="true"
+							ng-class="{ 'has-error' : addToPhonebook.phoneNumber.$error.pattern }"
+						/>
+					</p>
 					<p class="error" ng-show="addToPhonebook.phoneNumber.$error.pattern">(10 or 11 digits, and any number of spaces, dashes, or dots)</p>
 					<p>
+						<button ng-click="deleteEntry()" ng-show="hasEntry()">Delete</button>
 						<button ng-click="addEntry(addToPhonebook.$valid, entryName, phoneNumber)" ng-disabled="addToPhonebook.$invalid">Save</button>
-						<button ng-click="deleteEntry()">Delete</button>
 					</p>
 				</form>
 				Debug: {{ entryName }}: {{ phoneNumber }}

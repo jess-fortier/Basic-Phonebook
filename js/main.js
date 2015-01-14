@@ -10,7 +10,6 @@ var app = angular
 			{
 				if (isValid && localStorageService.isSupported)
 				{
-					alert('beep beep');
 					localStorageService.set("name", name);
 					localStorageService.set("phone", phone);
 				}
@@ -18,6 +17,11 @@ var app = angular
 			$scope.deleteEntry = function() {
 				localStorageService.remove("name");
 				localStorageService.remove("phone");
+			};
+			$scope.hasEntry = function() {
+				if(localStorageService.get("name") == null && localStorageService.get("phone") == null)
+					return false;
+				return true;
 			};
 		}
 	);

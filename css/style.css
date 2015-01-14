@@ -28,11 +28,12 @@ form
 	padding: 0;
 	margin: 0;
 	width: 100%;
+	text-align: center;
 }
 form label
 {
 	color: #44aacc;
-	width: 40%;
+	width: 30%;
 	margin: .5em 1em .5em 0;
 	text-align: right;
 	display: inline-block;
@@ -42,13 +43,16 @@ form input
 	display: inline-block;
 	border: 1px solid #77ccee;
 }
+form p
+{
+	margin: 0;
+	padding: 0;
+}
 p.error
 {
 	color: #aaaaaa;
 	font-size: 0.8em;
 	text-align: center;
-	margin: 0;
-	padding: 0;
 }
 
 .has-error{
