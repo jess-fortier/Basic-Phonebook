@@ -22,7 +22,9 @@ var app = angular
 			//Wipe name and phone entries for this app from localStorage
 			$scope.deleteEntry = function() {
 				localStorageService.remove("name");
+				$scope.entryName = '';
 				localStorageService.remove("phone");
+				$scope.phoneNumber = '';
 			};
 
 			//Confirm whether entries for name or phone already exist in localStorage
