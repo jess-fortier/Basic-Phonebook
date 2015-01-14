@@ -1,7 +1,7 @@
 var app = angular
 	.module('basicPhonebook', ['LocalStorageModule'])
 	.config(function (localStorageServiceProvider) {
-	  localStorageServiceProvider.setPrefix('myApp');
+	  localStorageServiceProvider.setPrefix('basicPhonebook');
 	})
 	.controller('mainController', 
 		function($scope, localStorageService)
