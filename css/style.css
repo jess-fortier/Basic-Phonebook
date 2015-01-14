@@ -48,6 +48,7 @@ form p
 	margin: 0;
 	padding: 0;
 }
+p {text-align: center;}
 p.error
 {
 	color: #aaaaaa;

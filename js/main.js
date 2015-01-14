@@ -21,6 +21,7 @@ var app = angular
 					showFields = false;
 				}
 			};
+			
 			//Wipe name and phone entries for this app from localStorage
 			$scope.deleteEntry = function() {
 				localStorageService.remove("name");
