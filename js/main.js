@@ -9,6 +9,7 @@ var app = angular
 			//Initialize fields to stored values, if any
 			$scope.entryName = localStorageService.get("name");
 			$scope.phoneNumber = localStorageService.get("phone");
+			$scope.showFields = true;
 
 			//Commit the current field contents to localStorage
 			$scope.addEntry = function(isValid, name, phone)
@@ -17,6 +18,7 @@ var app = angular
 				{
 					localStorageService.set("name", name);
 					localStorageService.set("phone", phone);
+					showFields = false;
 				}
 			};
 			//Wipe name and phone entries for this app from localStorage
