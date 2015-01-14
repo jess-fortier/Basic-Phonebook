@@ -45,6 +45,7 @@
 					<p class="error" ng-show="addToPhonebook.phoneNumber.$error.pattern">(10 or 11 digits, and any number of spaces, dashes, or dots)</p>
 					<p>
 						<button ng-click="addEntry(addToPhonebook.$valid, entryName, phoneNumber)" ng-disabled="addToPhonebook.$invalid">Save</button>
+						<button ng-click="deleteEntry()">Delete</button>
 					</p>
 				</form>
 				Debug: {{ entryName }}: {{ phoneNumber }}

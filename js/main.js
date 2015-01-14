@@ -4,11 +4,20 @@ var app = angular
 	  localStorageServiceProvider.setPrefix('myApp');
 	})
 	.controller('mainController', 
-		function($scope, localStorageService) {
-			$scope.addEntry = function(isValid, name, phone) {
-				if (isValid && localStorageService.isSupported) {
+		function($scope, localStorageService)
+		{
+			$scope.addEntry = function(isValid, name, phone)
+			{
+				if (isValid && localStorageService.isSupported)
+				{
+					alert('beep beep');
 					localStorageService.set("name", name);
 					localStorageService.set("phone", phone);
 				}
+			};
+			$scope.deleteEntry = function() {
+				localStorageService.remove("name");
+				localStorageService.remove("phone");
+			};
 		}
-	});
+	);
