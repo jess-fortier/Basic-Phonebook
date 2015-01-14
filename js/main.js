@@ -7,7 +7,6 @@ var app = angular
 		function($scope, localStorageService) {
 			$scope.addEntry = function(isValid, name, phone) {
 				if (isValid && localStorageService.isSupported) {
-					alert("beep beep");
 					localStorageService.set("name", name);
 					localStorageService.set("phone", phone);
 				}
