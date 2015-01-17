@@ -49,8 +49,8 @@
 						</p>
 						<p class="error" ng-show="addToPhonebook.phoneNumber.$error.pattern">(10 or 11 digits not beginning with 0, and any number of spaces, dashes, or dots)</p>
 						<p>
-							<button ng-click="deleteEntry()" ng-show="hasEntry()">Delete</button>
-							<button ng-click="addEntry(addToPhonebook.$valid, entryName, phoneNumber); showFields=false;" ng-disabled="addToPhonebook.$invalid">Save</button>
+							<button ng-click="deleteEntry()" ng-show="hasEntry()" id="delete-button">Delete</button>
+							<button ng-click="addEntry(addToPhonebook.$valid, entryName, phoneNumber); showFields=false;" ng-disabled="addToPhonebook.$invalid" id="save-button">Save</button>
 						</p>
 					</form>
 				</section>
